@@ -19,6 +19,8 @@ import java.util.List;
 public class OrderService implements IOrderService {
 
     private final OrderRepository orderRepository;
+
+
     private final ProductServiceClient productClient;
     public OrderService(OrderRepository orderRepository, ProductServiceClient productClient) {
         this.orderRepository = orderRepository;
@@ -40,7 +42,7 @@ public class OrderService implements IOrderService {
             double pricePerUnit = product.getPrice();
             double totalPrice = product.getPrice() * itemDTO.getQuantity();
             OrderItem item = OrderItemMapper.OrderItemRequestDTOtoOrderItemEntity(
-                itemDTO,
+                    itemDTO,
                     order,
                     pricePerUnit,
                     totalPrice
